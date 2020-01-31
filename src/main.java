@@ -7,10 +7,6 @@ import Animals.Unicorn;
 
 public class main {
 
-    static Dragon someDragon;
-    static Lion someLion;
-    static Unicorn someUnicorn;
-
     static int userMainChoice;
 
     public static void main(String[] args) {
@@ -23,8 +19,9 @@ public class main {
         System.out.println("3. Unicorn.");
 
         userMainChoice = in.nextInt();
-
-        someActionWithAnimal(setSomeAnimal(userMainChoice));
+        Animal animal = setSomeAnimal(userMainChoice);
+        animal.printData();
+        someActionWithAnimal(animal);
 
         System.out.println("Thanks! Good Luck!");
     }
@@ -45,19 +42,13 @@ public class main {
 
         switch (userValue) {
             case 1:
-                someDragon = new Dragon(animalAge, animalWeight, animalHeight);
-                someDragon.printData();
-                return someDragon;
+                return new Dragon(animalAge, animalWeight, animalHeight);;
 
             case 2:
-                someLion = new Lion(animalAge, animalWeight, animalHeight);
-                someLion.printData();
-                return someLion;
+                return new Lion(animalAge, animalWeight, animalHeight);
 
             case 3:
-                someUnicorn = new Unicorn(animalAge, animalWeight, animalHeight);
-                someUnicorn.printData();
-                return someUnicorn;
+                return new Unicorn(animalAge, animalWeight, animalHeight);
 
             default:
                 System.out.println("Invalid input! Please, restart the program.");
