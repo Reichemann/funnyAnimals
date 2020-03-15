@@ -1,7 +1,6 @@
 package Animals;
 
 public abstract class Animal implements Animals {
-
     private int age;
     private int weight;
     private int height;
