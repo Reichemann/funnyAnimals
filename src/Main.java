@@ -4,7 +4,7 @@ import Animals.Dragon;
 import Animals.Lion;
 import Animals.Unicorn;
 
-public class main {
+public class Main {
 
     static Dragon someDragon;
     static Lion someLion;
