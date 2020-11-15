@@ -1,4 +1,4 @@
-package Animals;
+package app.model;
 
 public class Lion extends Animal implements Animals {
 

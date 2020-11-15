@@ -1,4 +1,4 @@
-package Animals;
+package app.model;
 
 public class Dragon extends Animal implements Animals {
 

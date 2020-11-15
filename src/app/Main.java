@@ -1,16 +1,10 @@
+package app;
+
 import java.util.Scanner;
-import Animals.Animal;
-import Animals.Dragon;
-import Animals.Lion;
-import Animals.Unicorn;
+
+import app.model.*;
 
 public class Main {
-
-    static Dragon someDragon;
-    static Lion someLion;
-    static Unicorn someUnicorn;
-
-    static int userMainChoice;
 
     public static void main(String[] args) {
 
@@ -22,20 +16,19 @@ public class Main {
         System.out.println("2. Lion.");
         System.out.println("3. Unicorn.");
 
-        userMainChoice = in.nextInt();
+        int userMainChoice = in.nextInt();
 
         someActionWithAnimal(setSomeAnimal(userMainChoice));
 
         System.out.println("Thanks! Good Luck!");
     }
 
-    public static Animal setSomeAnimal(int userValue) {
-
-        int userChoice = 0;
+    private static Animal setSomeAnimal(int userValue) {
 
         Scanner animalIn = new Scanner(System.in);
 
         System.out.println("Please, enter animal`s stats: ");
+
         System.out.println("Age: ");
         int animalAge = animalIn.nextInt();
         System.out.println("Weight: ");
@@ -44,29 +37,28 @@ public class Main {
         int animalHeight = animalIn.nextInt();
 
         switch(userValue) {
+
             case 1:
-                someDragon = new Dragon(animalAge, animalWeight, animalHeight);
+                Dragon someDragon = new Dragon(animalAge, animalWeight, animalHeight);
                 someDragon.printData();
                 return someDragon;
             case 2:
-                someLion = new Lion(animalAge, animalWeight, animalHeight);
+                Lion someLion = new Lion(animalAge, animalWeight, animalHeight);
                 someLion.printData();
                 return someLion;
             case 3:
-                someUnicorn = new Unicorn(animalAge, animalWeight, animalHeight);
+                Unicorn someUnicorn = new Unicorn(animalAge, animalWeight, animalHeight);
                 someUnicorn.printData();
                 return someUnicorn;
             default:
                 System.out.println("Invalid input! Please, restart the program.");
-                break;
+                return null;
         }
-
-        return null;
     }
 
     public static void someActionWithAnimal(Animal someAnimal) {
 
-        int userChoice = 0;
+        int userChoice;
 
         Scanner animalIn = new Scanner(System.in);
 
@@ -80,7 +72,7 @@ public class Main {
 
         userChoice = animalIn.nextInt();
 
-        switch(userChoice) {
+        switch (userChoice) {
 
             case 1:
                 someAnimal.say();
