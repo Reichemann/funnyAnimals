@@ -9,12 +9,18 @@ public class Main {
     private static final Scanner in = new Scanner(System.in);
 
     public static void main(String... args) {
+        new Main().execute();
+    }
+
+    private void execute() {
 
         System.out.println("Please, select an animal: ");
 
         System.out.println("1. Dragon.");
         System.out.println("2. Lion.");
         System.out.println("3. Unicorn.");
+
+        System.out.print("Your choice: ");
 
         int userChoice = in.nextInt();
 
@@ -25,15 +31,15 @@ public class Main {
         System.out.println("Thanks! Good luck!");
     }
 
-    private static Animal getAnimal(int userValue) {
+    private Animal getAnimal(int userValue) {
 
         System.out.println("Please, enter animal's stats: ");
 
-        System.out.println("Age: ");
+        System.out.print("Age: ");
         int animalAge = in.nextInt();
-        System.out.println("Weight: ");
+        System.out.print("Weight: ");
         int animalWeight = in.nextInt();
-        System.out.println("Height: ");
+        System.out.print("Height: ");
         int animalHeight = in.nextInt();
 
         switch (userValue) {
@@ -56,7 +62,7 @@ public class Main {
         }
     }
 
-    private static void doActionWithAnimal(Animal animal) {
+    private void doActionWithAnimal(Animal animal) {
 
         int userChoice;
 
@@ -66,7 +72,7 @@ public class Main {
         System.out.println("2. Eat something.");
         System.out.println("3. Drink something.");
 
-        System.out.println("Your choice: ");
+        System.out.print("Your choice: ");
 
         userChoice = in.nextInt();
 
