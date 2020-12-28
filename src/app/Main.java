@@ -6,63 +6,61 @@ import app.model.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    private static final Scanner in = new Scanner(System.in);
 
-        Scanner in = new Scanner(System.in);
+    public static void main(String... args) {
 
-        System.out.println("Please, select any animal: ");
+        System.out.println("Please, select an animal: ");
 
         System.out.println("1. Dragon.");
         System.out.println("2. Lion.");
         System.out.println("3. Unicorn.");
 
-        int userMainChoice = in.nextInt();
+        int userChoice = in.nextInt();
 
-        someActionWithAnimal(setSomeAnimal(userMainChoice));
+        var animal = getAnimal(userChoice);
 
-        System.out.println("Thanks! Good Luck!");
+        doActionWithAnimal(animal);
+
+        System.out.println("Thanks! Good luck!");
     }
 
-    private static Animal setSomeAnimal(int userValue) {
+    private static Animal getAnimal(int userValue) {
 
-        Scanner animalIn = new Scanner(System.in);
-
-        System.out.println("Please, enter animal`s stats: ");
+        System.out.println("Please, enter animal's stats: ");
 
         System.out.println("Age: ");
-        int animalAge = animalIn.nextInt();
+        int animalAge = in.nextInt();
         System.out.println("Weight: ");
-        int animalWeight = animalIn.nextInt();
+        int animalWeight = in.nextInt();
         System.out.println("Height: ");
-        int animalHeight = animalIn.nextInt();
+        int animalHeight = in.nextInt();
 
-        switch(userValue) {
+        switch (userValue) {
 
             case 1:
-                Dragon someDragon = new Dragon(animalAge, animalWeight, animalHeight);
-                someDragon.printData();
-                return someDragon;
+                var dragon = new Dragon(animalAge, animalWeight, animalHeight);
+                dragon.printData();
+                return dragon;
             case 2:
-                Lion someLion = new Lion(animalAge, animalWeight, animalHeight);
-                someLion.printData();
-                return someLion;
+                var lion = new Lion(animalAge, animalWeight, animalHeight);
+                lion.printData();
+                return lion;
             case 3:
-                Unicorn someUnicorn = new Unicorn(animalAge, animalWeight, animalHeight);
-                someUnicorn.printData();
-                return someUnicorn;
+                var unicorn = new Unicorn(animalAge, animalWeight, animalHeight);
+                unicorn.printData();
+                return unicorn;
             default:
                 System.out.println("Invalid input! Please, restart the program.");
                 return null;
         }
     }
 
-    public static void someActionWithAnimal(Animal someAnimal) {
+    private static void doActionWithAnimal(Animal animal) {
 
         int userChoice;
 
-        Scanner animalIn = new Scanner(System.in);
-
-        System.out.println("You can get the animal`s to do some things for you.");
+        System.out.println("You can get the animal's to do something for you: ");
 
         System.out.println("1. Say something.");
         System.out.println("2. Eat something.");
@@ -70,18 +68,18 @@ public class Main {
 
         System.out.println("Your choice: ");
 
-        userChoice = animalIn.nextInt();
+        userChoice = in.nextInt();
 
         switch (userChoice) {
 
             case 1:
-                someAnimal.say();
+                animal.say();
                 break;
             case 2:
-                someAnimal.eat();
+                animal.eat();
                 break;
             case 3:
-                someAnimal.drink();
+                animal.drink();
                 break;
             default:
                 System.out.println("Invalid input! Please, restart the program.");

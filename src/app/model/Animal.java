@@ -13,13 +13,13 @@ public abstract class Animal implements Animals {
     }
 
     @Override
-    public void eat() {}
+    public abstract void eat();
 
     @Override
-    public void drink() {}
+    public abstract void drink();
 
     @Override
-    public void say() {}
+    public abstract void say();
 
     public void printData() {
         System.out.println("Features: ");
